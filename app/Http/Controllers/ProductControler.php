@@ -43,4 +43,15 @@ class ProductControler extends Controller
         return redirect()->route('stock')->with('success', 'Produit modifié');
     }
 
+    public function confirmationDeleteProduct(Produit $product){
+        return view('stock.confirmationdeleteproduct', [
+            'product' => $product
+        ]);
+    }
+
+    public function deleteProduct(Produit $product){
+        $product->delete();
+        return redirect()->route('stock')->with('success', 'Produit supprimé');
+    }
+
 }

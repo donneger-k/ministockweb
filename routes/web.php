@@ -9,12 +9,13 @@ Route::prefix('/stock')->controller(ProductControler::class)->name('stock')->gro
     Route::get('/', 'stock');
 
     Route::get('/add', 'addProduct')->name('.addProduct');
-
     Route::post('/add', 'storeProduct')->name('.storeProduct');
 
     Route::get('/edit/{product}', 'editProduct')->name('.editProduct');
-
     Route::patch('/edit/{product}', 'saveProduct')->name('.saveProduct');
+
+    Route::get('/delete/{product}', 'confirmationDeleteProduct')->name('.confirmationDeleteProduct');
+    Route::delete('/delete/{product}', 'deleteProduct')->name('.deleteProduct');
 
     Route::get('/{product}', 'showProduct')->name('.showProduct');
 });

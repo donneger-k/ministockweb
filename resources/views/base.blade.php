@@ -37,7 +37,7 @@
         @yield('content')
     </main>
 
-    <footer class="bg-light p-3">
+    <footer class="bg-light p-3 mt-3">
         <div class="container d-flex justify-content-between align-items-center">
 
             <span class="small text-muted">
