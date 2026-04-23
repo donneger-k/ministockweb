@@ -3,8 +3,9 @@
         <div class="card shadow-sm">
             <div class="card-body">
 
-                <form action='{{ route('stock.storeProduct') }}' method="post">
+                <form action='' method="POST">
                     @csrf
+                    @method($product->id ? "PATCH" : "POST")
 
                     <div class="mb-3">
                         <label class="form-label" for="ref">Référence</label>

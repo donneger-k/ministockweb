@@ -12,6 +12,10 @@ Route::prefix('/stock')->controller(ProductControler::class)->name('stock')->gro
 
     Route::post('/add', 'storeProduct')->name('.storeProduct');
 
+    Route::get('/edit/{product}', 'editProduct')->name('.editProduct');
+
+    Route::patch('/edit/{product}', 'saveProduct')->name('.saveProduct');
+
     Route::get('/{product}', 'showProduct')->name('.showProduct');
 });
 
@@ -27,6 +31,6 @@ Route::get('/', function () {
         'quantite_critique' => 0,
     ]);*/
 
-    return view('base');
+    return view('welcome');
     #return Inertia::render('welcome');
 })->name('home');

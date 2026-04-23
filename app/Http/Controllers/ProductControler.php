@@ -32,4 +32,15 @@ class ProductControler extends Controller
         return redirect()->route('stock')->with('success', 'Produit ajouté');
     }
 
+    public function editProduct(Produit $product){
+        return view('stock.editproduct', [
+            'product' => $product
+        ]);
+    }
+
+    public function saveProduct(ProductValidator $request, Produit $product){
+        $product->update($request->validated());
+        return redirect()->route('stock')->with('success', 'Produit modifié');
+    }
+
 }
