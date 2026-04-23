@@ -10,7 +10,7 @@ class ProductControler extends Controller
     public function stock(){
         #dd(Produit::all());
         return view('stock.stock', [
-            'products' => Produit::paginate(1)
+            'products' => Produit::paginate(6)
         ]);
     }
 

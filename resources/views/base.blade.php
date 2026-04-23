@@ -26,7 +26,7 @@
     </header>
 
     <main class="container">
-        <h1 class="text-center" > @yield('titre')</h1>
+        <h1 class="text-center my-3" > @yield('titre')</h1>
 
         @yield('content')
     </main>
