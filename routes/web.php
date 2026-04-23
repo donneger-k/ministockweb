@@ -19,6 +19,10 @@ Route::prefix('/stock')->controller(ProductControler::class)->name('stock')->gro
     Route::get('/{product}', 'showProduct')->name('.showProduct');
 });
 
+Route::get('/credits', function () {
+    return view('site.credits');
+})->name('credits');
+
 
 Route::get('/', function () {
     /*
@@ -31,6 +35,6 @@ Route::get('/', function () {
         'quantite_critique' => 0,
     ]);*/
 
-    return view('welcome');
+    return view('site.welcome');
     #return Inertia::render('welcome');
 })->name('home');

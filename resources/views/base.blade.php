@@ -25,7 +25,7 @@
         </nav>
     </header>
 
-    <main class="container">
+    <main class="container d-flex flex-column min-vh-100">
         @if (session('success'))
             <div class="alert alert-success mt-3">
                 {{ session('success') }}
@@ -36,6 +36,26 @@
 
         @yield('content')
     </main>
+
+    <footer class="bg-light p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <span class="small text-muted">
+                © 2026 Ministock. Tous droits réservés.
+            </span>
+
+            <span class="small">
+                Créé par 
+                <a href="https://github.com/donneger-k">Kilyan Donneger</a>
+            </span>
+
+            <a class="small text-decoration-none" href='{{ route('credits') }}'>
+                Crédits
+            </a>
+
+        </div>
+    </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
