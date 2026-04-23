@@ -26,6 +26,12 @@
     </header>
 
     <main class="container">
+        @if (session('success'))
+            <div class="alert alert-success mt-3">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <h1 class="text-center my-3" > @yield('titre')</h1>
 
         @yield('content')

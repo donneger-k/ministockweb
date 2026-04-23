@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ProductValidator;
 use App\Models\Produit;
 
 class ProductControler extends Controller
@@ -19,4 +19,17 @@ class ProductControler extends Controller
             'product' => $product
         ]);
     }
+
+    public function addProduct(){
+        $product = new Produit();
+        return view('stock.addproduct', [
+            'product' => $product
+        ]);
+    }
+
+    public function storeProduct(ProductValidator $request){
+        Produit::create($request->validated());
+        return redirect()->route('stock')->with('success', 'Produit ajouté');
+    }
+
 }
