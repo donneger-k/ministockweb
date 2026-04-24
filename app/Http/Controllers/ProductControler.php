@@ -3,27 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductValidator;
+use App\Http\Requests\SearchValidator;
 use App\Models\Produit;
+use GuzzleHttp\Psr7\Request;
 
 class ProductControler extends Controller
 {
     public function stock(){
         #dd(Produit::all());
         return view('stock.stock', [
-            'products' => Produit::paginate(6)
+            'products' => Produit::paginate(6),
+            'back' => false
         ]);
     }
 
     public function showProduct(Produit $product){
         return view('stock.product', [
-            'product' => $product
+            'product' => $product,
+            'back' => true
         ]);
     }
 
     public function addProduct(){
         $product = new Produit();
         return view('stock.addproduct', [
-            'product' => $product
+            'product' => $product,
+            'back' => true
         ]);
     }
 
@@ -34,7 +39,8 @@ class ProductControler extends Controller
 
     public function editProduct(Produit $product){
         return view('stock.editproduct', [
-            'product' => $product
+            'product' => $product,
+            'back' => true
         ]);
     }
 
@@ -45,13 +51,20 @@ class ProductControler extends Controller
 
     public function confirmationDeleteProduct(Produit $product){
         return view('stock.confirmationdeleteproduct', [
-            'product' => $product
+            'product' => $product,
+            'back' => false
         ]);
     }
 
     public function deleteProduct(Produit $product){
         $product->delete();
         return redirect()->route('stock')->with('success', 'Produit supprimé');
+    }
+
+    public function searchProduct(SearchValidator $request){
+        $donnes = $request->all();
+        $products = Produit::where($donnes['filter'], 'like', '%'.$donnes['search'].'%')->paginate(6);
+        return view('stock.stock', ['products' => $products, 'back' => false]);
     }
 
 }

@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ministock</title>
@@ -32,8 +33,22 @@
             </div>
         @endif
 
-        <h1 class="text-center my-3" > @yield('titre')</h1>
+        @if($back)
+            <div class="d-flex align-items-center justify-content-between my-3">
+                <a class="btn btn-outline-secondary" href="{{ url()->previous() }}">← Retour</a>
 
+                <h1 class=" text-center flex-grow-1">
+                    @yield('titre')
+                </h1>
+
+                <div style="width: 90px;"></div> {{-- espace pour équilibrer --}}
+            </div>
+        @else
+            <h1 class="text-center my-3">
+                @yield('titre')
+            </h1>
+        @endif
+        
         @yield('content')
     </main>
 
@@ -58,5 +73,9 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el))
+    </script>
 </body>
 </html>
