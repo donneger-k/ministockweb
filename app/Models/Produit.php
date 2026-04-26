@@ -18,7 +18,12 @@ class Produit extends Model
         'quantite_critique',
     ];
 
-    public function is_critique(){
+    public function is_critical(){
         return $this->quantite <= $this->quantite_critique;
     }
+
+    public function in_stock(){
+        return $this->quantite > 0;
+    }
+
 }

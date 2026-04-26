@@ -14,6 +14,10 @@
     <ul class="list-unstyled">
         <li class="mb-2">
             🔹
+            Certaines icônes sont issues de Bootstrap Icons (<a href="https://icons.getbootstrap.com/" target="_blank">https://icons.getbootstrap.com/</a>), distribuées sous licence MIT.
+        </li>
+        <li class="mb-2">
+            🔹
             <a href="https://www.flaticon.com/fr/icones-gratuites/produit" title="produit icônes" target="_blank">Produit icônes créées par Freepik - Flaticon</a>
         </li>
         <li class="mb-2">

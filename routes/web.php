@@ -24,7 +24,7 @@ Route::prefix('/stock')->controller(ProductControler::class)->name('stock')->gro
 });
 
 Route::get('/credits', function () {
-    return view('site.credits');
+    return view('site.credits', ['back' => true]);
 })->name('credits');
 
 
