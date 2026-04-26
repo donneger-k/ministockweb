@@ -23,7 +23,7 @@ class ProductValidator extends FormRequest
     public function rules(): array
     {
         return [
-            'ref' => ['required', 'numeric', Rule::unique('produits', 'ref')->ignore($this->route('product')->id)],
+            'ref' => ['required', 'string', Rule::unique('produits', 'ref')->ignore($this->route('product')?->id)],
             'nom' => ['required', 'string'],
             'categorie' => ['required', 'string'],
             'prix' => ['required', 'numeric'],
