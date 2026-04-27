@@ -24,6 +24,10 @@
             🔹
             <a href="https://www.flaticon.com/fr/icones-gratuites/ajouter-un-produit" title="ajouter un produit icônes" target="_blank">Ajouter un produit icônes créées par Andrean Prabowo - Flaticon</a>
         </li>
+        <li class="mb-2">
+            🔹
+            <a href="https://www.flaticon.com/fr/icones-gratuites/historique-des-transactions" title="historique des transactions icônes">Historique des transactions icônes créées par Freepik - Flaticon</a>
+        </li>
     </ul>
 
     <h2>Technologies</h2>
