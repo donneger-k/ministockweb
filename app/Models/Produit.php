@@ -26,4 +26,9 @@ class Produit extends Model
         return $this->quantite > 0;
     }
 
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
 }
