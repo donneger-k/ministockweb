@@ -28,6 +28,10 @@
             🔹
             <a href="https://www.flaticon.com/fr/icones-gratuites/historique-des-transactions" title="historique des transactions icônes">Historique des transactions icônes créées par Freepik - Flaticon</a>
         </li>
+        <li class="mb-2">
+            🔹
+            <a href="https://www.flaticon.com/fr/icones-gratuites/ajouter" title="ajouter icônes">Ajouter une transaction créées par iconixar - Flaticon</a>
+        </li>
     </ul>
 
     <h2>Technologies</h2>

@@ -27,12 +27,16 @@ Route::prefix('/stock')->controller(ProductControler::class)->name('stock')->gro
 
 Route::prefix('/transaction')->controller(TransactionController::class)->name('transaction')->group(function () {
     Route::get('/', 'transaction');
+
+    Route::get('/add', 'addTransaction')->name('.addTransaction');
+    Route::post('/add', 'storeTransaction')->name('.storeTransaction');
 });
 
 Route::get('/credits', function () {
     return view('site.credits', ['back' => true]);
 })->name('credits');
 
+Route::get('products/search', [ProductControler::class, 'searchProductGet'])->name('products.search');
 
 Route::get('/', function () {
     return view('site.welcome', ['back' => false]);

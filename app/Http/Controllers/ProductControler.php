@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProductValidator;
 use App\Http\Requests\SearchValidator;
 use App\Models\Produit;
-use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 
 class ProductControler extends Controller
 {
@@ -65,6 +65,14 @@ class ProductControler extends Controller
         $donnes = $request->all();
         $products = Produit::where($donnes['filter'], 'like', '%'.$donnes['search'].'%')->paginate(6);
         return view('stock.stock', ['products' => $products, 'back' => false]);
+    }
+
+    public function searchProductGet(Request $request)
+    {
+        $search = $request->get('q');
+        $filter = $request->get('filter');
+        $products = Produit::where($filter, 'like', "%{$search}%")->limit(10)->get();
+        return response()->json($products);
     }
 
 }

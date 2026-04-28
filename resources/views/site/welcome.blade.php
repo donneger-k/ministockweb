@@ -31,7 +31,6 @@
         </div>
     </div>
 
-
     <div class="card position-relative mt-3">
         <div class="position-absolute top-0 start-0 translate-middle-y ms-3 px-2 bg-white fw-bold">
             <h3 class="mb-1 fw-bold">Transactions</h3>
@@ -42,7 +41,16 @@
                     <div class="card center text-center">
                         <div class="card-body">
                             <img class="card-img-top img-fluid w-25  mb-3" src="{{ asset('icons/transaction.png') }}" alt="stock">
-                            <a class="btn btn-primary w-100" href="{{ route('transaction') }}">Transactions</a>
+                            <a class="btn btn-primary w-100" href="{{ route('transaction') }}">Transaction</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6">
+                    <div class="card center text-center">
+                        <div class="card-body">
+                            <img class="card-img-top img-fluid w-25  mb-3" src="{{ asset('icons/fichier.png') }}" alt="add product">
+                            <a class="btn btn-primary w-100" href="{{ route('transaction.addTransaction') }}">Ajouter</a>
                         </div>
                     </div>
                 </div>
