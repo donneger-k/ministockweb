@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Enums\TransactionType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Rules\StockDisponible;
 
 class TransactionValidator extends FormRequest
 {
@@ -26,7 +27,7 @@ class TransactionValidator extends FormRequest
         return [
             'nom' => ['required', 'string', 'max:255'],
             'commentaire' => ['string', 'max:255', 'nullable'],
-            'quantite' => ['required', 'integer'],
+            'quantite' => ['required', 'integer', 'min:1', new StockDisponible($this->produit_id)],
             'nom_produit' => ['required', 'string', Rule::exists('produits', 'nom')],
             'type' => ['required', Rule::in(TransactionType::cases())],
             'produit_id' => ['required', Rule::exists('produits', 'id')]

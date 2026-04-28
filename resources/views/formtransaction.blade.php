@@ -60,7 +60,7 @@
 
                         <div class="input-group">
                             <input type="text" name="nom_produit" id="product_name" class="form-control @error('nom_produit') is-invalid @enderror" placeholder="Aucun produit sélectionné" readonly value="{{ old('nom_produit', $transaction->nom_produit) }}">
-                            <input type="hidden" name="produit_id" id="product_id">
+                            <input type="hidden" name="produit_id" id="product_id" value="{{ old('produit_id', $transaction->produit_id) }}">
                             <button type="button"  class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal">Choisir</button>
                             @error('nom_produit')
                                 <div class="invalid-feedback">{{ $message }}</div>

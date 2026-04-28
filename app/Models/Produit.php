@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\TransactionType;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -29,6 +30,16 @@ class Produit extends Model
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
+    }
+
+    public function updateStock(int $quantite, TransactionType $type){
+        if ($type->isEntree()) {
+            $this->quantite += $quantite;
+        }
+        else {
+            $this->quantite -= $quantite;
+        }
+        $this->save();
     }
 
 }

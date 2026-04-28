@@ -6,6 +6,7 @@ use App\Models\Transaction;
 use App\Models\Produit;
 use App\Http\Requests\TransactionValidator;
 use App\Http\Requests\SearchTransactionValidator;
+use App\Enums\TransactionType;
 
 class TransactionController extends Controller
 {
@@ -28,7 +29,9 @@ class TransactionController extends Controller
 
     public function storeTransaction(TransactionValidator $request){
         Transaction::create($request->validated());
-        return redirect()->route('transaction')->with('success', 'Transaction ajoutée');
+        $product = Produit::find($request->validated()['produit_id']);
+        $product->updateStock($request->validated()['quantite'],  TransactionType::from($request->validated()['type']));
+        return redirect()->route('stock')->with('success', 'Transaction ajoutée');
     }
 
     public function showTransaction(Transaction $transaction){
