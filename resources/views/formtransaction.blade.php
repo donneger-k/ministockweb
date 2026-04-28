@@ -35,7 +35,7 @@
                                 <label class="form-label" for="type">Type de transaction</label>
                                 <select class="form-select @error('type') is-invalid @enderror" name="type">
                                     @foreach (TransactionType::cases() as $type)
-                                        <option value="{{  $type->value }}">{{ $type->label() }}</option>
+                                        <option value="{{  $type->value }}" {{ old('type', $transaction->type) == $type->value ? 'selected' : '' }}>{{ $type->label() }}</option>
                                     @endforeach
                                 </select>
                                 @error('type')
