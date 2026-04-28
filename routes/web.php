@@ -30,6 +30,8 @@ Route::prefix('/transaction')->controller(TransactionController::class)->name('t
 
     Route::get('/add', 'addTransaction')->name('.addTransaction');
     Route::post('/add', 'storeTransaction')->name('.storeTransaction');
+
+    Route::get('/{transaction}', 'showTransaction')->name('.showTransaction');
 });
 
 Route::get('/credits', function () {

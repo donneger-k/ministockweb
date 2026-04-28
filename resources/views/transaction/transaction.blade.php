@@ -16,7 +16,7 @@
                                 <div class="fw-bold">{{ $transaction->nom }}</div>
                                 <small class="text-muted">{{ $transaction->created_at->format('d/m/Y H:i') }}</small>
                             </div>
-                            <a class="btn btn-sm btn-primary" href="#">Voir</a>
+                            <a class="btn btn-sm btn-primary" href="{{ route('transaction.showTransaction', ['transaction' => $transaction]) }}">Voir</a>
                         </li>
                     @endforeach
                 </ul>

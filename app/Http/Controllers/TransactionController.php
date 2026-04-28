@@ -30,4 +30,11 @@ class TransactionController extends Controller
         return redirect()->route('transaction')->with('success', 'Transaction ajoutée');
     }
 
+    public function showTransaction(Transaction $transaction){
+        return view('transaction.showtransaction', [
+            'transaction' => $transaction,
+            'back' => true
+        ]);
+    }
+
 }
