@@ -26,6 +26,8 @@ Route::prefix('/stock')->controller(ProductControler::class)->name('stock')->gro
 });
 
 Route::prefix('/transaction')->controller(TransactionController::class)->name('transaction')->group(function () {
+    Route::post('/search', 'searchTransaction')->name('.searchTransaction');
+
     Route::get('/', 'transaction');
 
     Route::get('/add', 'addTransaction')->name('.addTransaction');

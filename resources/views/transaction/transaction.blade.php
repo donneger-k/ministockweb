@@ -4,6 +4,34 @@
 
 @section('content')
 
+    <div class="container mb-3">
+        <form action="{{ route('transaction.searchTransaction') }}" method="POST" class="row g-2 align-items-center">
+            @csrf
+            <div class="col">
+                <input class="form-control @error('search') is-invalid @enderror" type="text" name="search" placeholder="Rechercher une transaction">
+                @error('search')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="col-auto">
+                <select class="form-select @error('filter') is-invalid @enderror" name="filter">
+                    <option selected value="nom">Nom Transaction</option>
+                    <option value="created_at">Date</option>
+                    <option value="nom_produit">Nom produit</option>
+                    <option value="type">Type</option>
+                </select>
+                @error('filter')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Rechercher</button>
+            </div>
+        </form>
+    </div>
+
     @if ($transactions->isEmpty())
         <p class="alert alert-info">Aucunes transactions enregistrées</p>
     @else

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Transaction;
 use App\Models\Produit;
 use App\Http\Requests\TransactionValidator;
+use App\Http\Requests\SearchTransactionValidator;
 
 class TransactionController extends Controller
 {
@@ -35,6 +36,12 @@ class TransactionController extends Controller
             'transaction' => $transaction,
             'back' => true
         ]);
+    }
+
+    public function searchTransaction(SearchTransactionValidator $request){
+        $donnes = $request->all();
+        $transactions = Transaction::where($donnes['filter'], 'like', '%'.$donnes['search'].'%')->paginate(10);
+        return view('transaction.transaction', ['transactions' => $transactions, 'back' => false]);
     }
 
 }
