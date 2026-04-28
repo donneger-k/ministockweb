@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container mb-3">
-        <form action="{{ route('stock.searchProduct') }}" method="POST" class="row g-2 align-items-center">
+        <form action="{{ route('stock.searchProduct') }}" method="GET" class="row g-2 align-items-center">
             @csrf
             <div class="col">
                 <input class="form-control @error('search') is-invalid @enderror" type="text" name="search" placeholder="Rechercher un produit">

@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="container mb-3">
-        <form action="{{ route('transaction.searchTransaction') }}" method="POST" class="row g-2 align-items-center">
+        <form action="{{ route('transaction.searchTransaction') }}" method="GET" class="row g-2 align-items-center">
             @csrf
             <div class="col">
                 <input class="form-control @error('search') is-invalid @enderror" type="text" name="search" placeholder="Rechercher une transaction">

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::prefix('/stock')->controller(ProductControler::class)->name('stock')->group(function () {
-    Route::post('/search', 'searchProduct')->name('.searchProduct');
+    Route::get('/search', 'searchProduct')->name('.searchProduct');
 
     Route::get('/', 'stock');
 
@@ -26,7 +26,7 @@ Route::prefix('/stock')->controller(ProductControler::class)->name('stock')->gro
 });
 
 Route::prefix('/transaction')->controller(TransactionController::class)->name('transaction')->group(function () {
-    Route::post('/search', 'searchTransaction')->name('.searchTransaction');
+    Route::get('/search', 'searchTransaction')->name('.searchTransaction');
 
     Route::get('/', 'transaction');
 
