@@ -49,7 +49,16 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label class="form-label" for="quantite">Quantité</label>
-                                <input class="form-control @error('quantite') is-invalid @enderror" type="text" name="quantite" value="{{ old('quantite', $product->quantite) }}">
+                                @if($product->id)
+                                    <div class="input-group">
+                                @endif
+                                <input class="form-control @error('quantite') is-invalid @enderror @if($product->id) text-muted @endif"
+                                type="text" name="quantite" value="{{ old('quantite', $product->quantite) }}" @if($product->id) readonly @endif>
+                                @if($product->id)
+                                    <i class="input-group-text bi bi-info-circle" data-bs-toggle="tooltip" title="Interdiction de modifier la quantité" style="cursor: pointer;"></i>
+                                    </div>
+                                @endif
+
                                 @error('quantite')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

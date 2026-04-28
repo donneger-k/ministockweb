@@ -27,8 +27,13 @@ class ProductValidator extends FormRequest
             'nom' => ['required', 'string'],
             'categorie' => ['required', 'string'],
             'prix' => ['required', 'numeric'],
-            'quantite' => ['required', 'numeric'],
-            'quantite_critique' => ['required', 'numeric'],
+            'quantite' => ['required', 'numeric', 'min:0',
+            function ($attribute, $value, $fail) {
+                if ($this->route('produit') && $value != $this->route('produit')->quantite) {
+                    $fail('La quantité ne peut pas être modifiée directement.');
+                }
+            },],
+            'quantite_critique' => ['required', 'numeric', 'min:0'],
         ];
     }
 }

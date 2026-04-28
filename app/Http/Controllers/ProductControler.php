@@ -45,7 +45,9 @@ class ProductControler extends Controller
     }
 
     public function saveProduct(ProductValidator $request, Produit $product){
-        $product->update($request->validated());
+        $data = $request->validated();
+        $data['quantite'] = $product->quantite;
+        $product->update($data);
         return redirect()->route('stock')->with('success', 'Produit modifié');
     }
 
