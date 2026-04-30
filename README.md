@@ -11,6 +11,18 @@ Projet réalisé dans le cadre de mon apprentissage de Laravel afin de comprendr
 
 ---
 
+## Aperçu de l'application
+
+### Stock
+
+![Stock](./screenshots/stock.png)
+
+### Transactions
+
+![Transactions](./screenshots/transaction.png)
+
+---
+
 # Fonctionnalités
 
 - Créer des produits avec informations personnalisées
