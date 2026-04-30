@@ -96,7 +96,15 @@ php artisan key:generate
 php artisan migrate
 ```
 
-### 6. Démarrer le serveur
+### 6. (Optionnel) Remplir la base avec des données de test
+
+Des données d'exemple (produits, transactions...) seront générées afin de tester rapidement l'application.
+
+ ```bash
+php artisan db:seed
+```
+
+### 7. Démarrer le serveur
 
 ```bash
 php artisan serve
