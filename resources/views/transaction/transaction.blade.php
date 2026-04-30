@@ -39,19 +39,32 @@
             <div class="card-body p-0">
                 <ul class="list-group list-group-flush">
                     @foreach ($transactions as $transaction)
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="fw-bold">{{ $transaction->nom }}</div>
-                                <small class="text-muted">{{ $transaction->created_at->format('d/m/Y H:i') }}</small>
-                            </div>
-                            <a class="btn btn-sm btn-primary" href="{{ route('transaction.showTransaction', ['transaction' => $transaction]) }}">Voir</a>
-                        </li>
+                        <a class="text-decoration-none text-dark"
+                        href="{{ route('transaction.showTransaction', ['transaction' => $transaction]) }}">
+                            <li class="list-group-item-action list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="fw-bold">{{ $transaction->nom }}</div>
+                                    <small class="text-muted">{{ $transaction->created_at->format('d/m/Y H:i') }}</small>
+                                </div>
+
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="badge {{ $transaction->type->isEntree() ? 'bg-success' : 'bg-danger' }}">
+                                            {{ $transaction->type->label() }}
+                                        </span>
+                                        <span class="text-muted small">x{{ $transaction->quantite }} </span>
+                                    </div>
+                                </div>
+                            </li>
+                        </a>
                     @endforeach
                 </ul>
             </div>
         </div>
 
-        {{ $transactions->links() }}
+        <div class="mt-3">
+            {{ $transactions->links() }}
+        </div>
     @endif
 
 @endsection

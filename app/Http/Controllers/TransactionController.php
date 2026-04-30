@@ -13,7 +13,7 @@ class TransactionController extends Controller
     public function transaction()
     {
         return view('transaction.transaction', [
-            'transactions' => Transaction::paginate(10),
+            'transactions' => Transaction::latest()->paginate(8),
             'back' => false
         ]);
     }
