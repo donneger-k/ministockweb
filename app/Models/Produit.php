@@ -4,12 +4,15 @@ namespace App\Models;
 
 use App\Enums\TransactionType;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * @mixin IdeHelperProduit
  */
 class Produit extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'ref',
         'nom',
