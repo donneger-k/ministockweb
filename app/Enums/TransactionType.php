@@ -19,6 +19,16 @@ enum TransactionType: string
             self::DON_ENVOYE => 'Don envoyé',
         };
     }
+    
+    public function color(): string
+    {
+        return match($this) {
+            self::ACHAT => 'rgba(40, 167, 69, 0.7)',
+            self::DON_RECU => 'rgba(32, 123, 53, 0.7)',
+            self::VENTE => 'rgba(220, 53, 69, 0.7)',
+            self::DON_ENVOYE => 'rgba(165, 43, 55, 0.7)',
+        };
+    }
 
     public function isEntree(): bool
     {

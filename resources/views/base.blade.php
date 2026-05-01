@@ -24,6 +24,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('transaction') }}">Transactions</a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                </li>
                 </ul>
             </div>
         </nav>

@@ -1,12 +1,9 @@
 <?php
 
-use App\Enums\TransactionType;
 use App\Http\Controllers\ProductControler;
 use App\Http\Controllers\TransactionController;
-use App\Models\Transaction;
-use Illuminate\Http\Request;
+use App\Services\DashboardService;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 Route::prefix('/stock')->controller(ProductControler::class)->name('stock')->group(function () {
     Route::get('/search', 'searchProduct')->name('.searchProduct');
@@ -41,6 +38,11 @@ Route::get('/credits', function () {
 })->name('credits');
 
 Route::get('products/search', [ProductControler::class, 'searchProductGet'])->name('products.search');
+
+Route::get('/dashboard', function () {
+    return view('site.dashboard', ['back' => false, 'data' => new DashboardService()->getStats()]);
+})->name('dashboard');
+
 
 Route::get('/', function () {
     return view('site.welcome', ['back' => false]);
