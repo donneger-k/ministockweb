@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
         Produit::factory(1)->critical()->create();
         Produit::factory(2)->create();
 
-        Transaction::factory(10)->create();
+        Transaction::factory(100)->create();
     }
 }

@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Enums\TransactionType as TypeEnum;
 use App\Models\Produit;
+use Carbon\Carbon;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Transaction>
@@ -24,11 +25,13 @@ class TransactionFactory extends Factory
             'nom' => $this->faker->sentence(3),
             'commentaire' => $this->faker->optional()->sentence(),
             'quantite' => $this->faker->numberBetween(1, 20),
-
             'produit_id' => $produit->id,
             'nom_produit' => $produit->nom,
-
             'type' => $this->faker->randomElement(TypeEnum::cases())->value,
+            'created_at' => $this->faker->dateTimeBetween(
+                Carbon::now()->subMonths(5),
+                Carbon::now()
+            ),
         ];
     }
 }
