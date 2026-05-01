@@ -13,6 +13,10 @@ Projet réalisé dans le cadre de mon apprentissage de Laravel afin de comprendr
 
 ## Aperçu de l'application
 
+### Dashboard
+
+![Dashboard](./screenshots/dashboard.png)
+
 ### Stock
 
 ![Stock](./screenshots/stock.png)
