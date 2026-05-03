@@ -29,8 +29,6 @@ class TransactionController extends Controller
 
     public function storeTransaction(TransactionValidator $request){
         Transaction::create($request->validated());
-        $product = Produit::find($request->validated()['produit_id']);
-        $product->updateStock($request->validated()['quantite'],  TransactionType::from($request->validated()['type']));
         return redirect()->route('stock')->with('success', 'Transaction ajoutée');
     }
 
