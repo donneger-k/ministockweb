@@ -118,11 +118,22 @@ Puis accéder à l'application via :
 
 ```bash
 http://127.0.0.1:8000
+
+```
+
+# Tests
+
+Des tests ont été réalisés afin de vérifier le bon fonctionnement des principales fonctionnalités de l'application (gestion des produits, mouvements de stock, etc.).
+
+Vous pouvez les exécuter avec la commande suivante :
+
+```bash
+php artisan test
 ```
 
 # Statut du projet
 
-- En cours de réalisation
+- ✅ Projet terminé
 
 Ce projet est fonctionnel et utilisable.
 
