@@ -1,5 +1,7 @@
 # Ministockweb
 
+> **English version available:** [README_EN.md](./README_EN.md)
+
 **Ministockweb** est une application de gestion de stock simple développée en **Laravel**, avec une interface utilisateur réalisée avec **Bootstrap**.
 Ce projet est une adaptation web du projet [ministock](https://github.com/donneger-k/ministock) original.
 
@@ -61,7 +63,9 @@ Avant de lancer le projet, assurez-vous d'avoir installé :
 
 Une fois le serveur lancé, rendez-vous sur :
 
+```bash
 http://127.0.0.1:8000
+```
 
 ---
 
@@ -118,8 +122,9 @@ Puis accéder à l'application via :
 
 ```bash
 http://127.0.0.1:8000
-
 ```
+
+---
 
 # Tests
 
